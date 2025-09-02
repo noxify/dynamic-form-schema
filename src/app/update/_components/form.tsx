@@ -112,10 +112,10 @@ export function UpdateForm() {
             <div className="flex items-center gap-2">
               {form.formState.isSubmitting ? (
                 <Button disabled={true}>
-                  <span>Creating...</span>
+                  <span>Updating...</span>
                 </Button>
               ) : (
-                <Button type="submit">Create</Button>
+                <Button type="submit">Update</Button>
               )}
             </div>
           </div>
