@@ -1,7 +1,7 @@
 import type { Entries } from "type-fest"
 
+import type { BaseFormValues, BaseValidationType, FieldConfig } from "./types"
 import type { FieldValues, SubmitHandler, UseFormReturn } from "react-hook-form"
-import { BaseFormValues, BaseValidationType, FieldConfig } from "./types"
 
 export function typedSubmit<T extends FieldValues>(
   form: UseFormReturn<T>,

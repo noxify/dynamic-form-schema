@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/select"
 import { isDisabled, isRequired } from "@/dynamic-schema/form-helper"
 
-import type { ControllerFieldState, ControllerRenderProps, UseFormReturn } from "react-hook-form"
+import type { UseFormReturn } from "react-hook-form"
 
 export function ConditionalFieldAField({
   form,
@@ -41,7 +41,7 @@ export function ConditionalFieldAField({
           <FormControl>
             <Select
               onValueChange={field.onChange}
-              value={field.value}
+              value={field.value as string | undefined}
               disabled={disabled ? true : undefined}
             >
               <FormControl>

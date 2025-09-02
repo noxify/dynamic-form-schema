@@ -1,1 +1,1 @@
-export const sleep = (ms: number = 1000) => new Promise((r) => setTimeout(r, ms))
+export const sleep = (ms = 1000) => new Promise((r) => setTimeout(r, ms))

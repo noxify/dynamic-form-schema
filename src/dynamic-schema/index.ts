@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-import {
+import type {
   BaseFormValues,
   BaseStatus,
   BaseValidationType,
@@ -35,8 +35,7 @@ function nestShape(flatShape: Record<string, unknown>): Record<string, unknown> 
     const parts = key.split(".")
     let curr = result
     for (let i = 0; i < parts.length; i++) {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      const part = parts[i]!
+      const part = parts[i]
       if (i === parts.length - 1) {
         curr[part] = flatShape[key]
       } else {
@@ -150,6 +149,7 @@ export function dynamicSchema<
       ) {
         const validator = fieldValidations[validationType as keyof typeof fieldValidations]
 
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         if (!validator) {
           throw new Error(`Validation type "${validationType}" not found in fieldValidations`)
         }

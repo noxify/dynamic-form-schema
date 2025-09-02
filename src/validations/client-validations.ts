@@ -1,6 +1,6 @@
 "use client"
 
-import { AsyncClientValidationProps } from "@/dynamic-schema/types"
+import type { AsyncClientValidationProps } from "@/dynamic-schema/types"
 
 export const nameRemoteValidation = async (props: AsyncClientValidationProps) => {
   if (props.value == "" || props.value == undefined) {

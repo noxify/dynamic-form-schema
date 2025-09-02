@@ -12,7 +12,8 @@ export const nameRemoteValidation = async (props: AsyncServerValidationProps) =>
   // Simulate some server-side processing delay
   await sleep()
 
-  const isValid = props.value?.toString().toLowerCase() !== "server"
+  // eslint-disable-next-line @typescript-eslint/no-base-to-string
+  const isValid = props.value.toString().toLowerCase() !== "server"
 
   if (!isValid) {
     return "async server: Please use a different name"

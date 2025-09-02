@@ -25,7 +25,7 @@ export function CreateForm() {
 
   const status = "create"
 
-  const fieldConfig = formConfig?.[status]?.fields ?? {}
+  const fieldConfig = formConfig[status]?.fields ?? {}
 
   const defaultValues: FormValues = {
     name: "",

@@ -1,9 +1,9 @@
 "use client"
 
+import type * as LabelPrimitive from "@radix-ui/react-label"
 import * as React from "react"
 import { Label } from "@/components/ui/label"
 import { cn } from "@/lib/utils"
-import * as LabelPrimitive from "@radix-ui/react-label"
 import { Slot } from "@radix-ui/react-slot"
 
 import type { ControllerProps, FieldPath, FieldValues } from "react-hook-form"
@@ -11,10 +11,10 @@ import { Controller, FormProvider, useFormContext, useFormState } from "react-ho
 
 const Form = FormProvider
 
-type FormFieldContextValue<
+interface FormFieldContextValue<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-> = {
+> {
   name: TName
 }
 
@@ -40,6 +40,7 @@ const useFormField = () => {
   const formState = useFormState({ name: fieldContext.name })
   const fieldState = getFieldState(fieldContext.name, formState)
 
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   if (!fieldContext) {
     throw new Error("useFormField should be used within <FormField>")
   }
@@ -56,7 +57,7 @@ const useFormField = () => {
   }
 }
 
-type FormItemContextValue = {
+interface FormItemContextValue {
   id: string
 }
 
@@ -115,6 +116,7 @@ function FormDescription({ className, ...props }: React.ComponentProps<"p">) {
 
 function FormMessage({ className, ...props }: React.ComponentProps<"p">) {
   const { error, formMessageId } = useFormField()
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   const body = error ? String(error?.message ?? "") : props.children
 
   if (!body) {

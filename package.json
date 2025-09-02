@@ -4,12 +4,13 @@
   "private": true,
   "license": "MIT",
   "author": "Marcus Reinhardt",
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "dev": "next dev",
     "format": "prettier --check . --ignore-path ./.gitignore",
     "lint": "eslint .",
+    "start": "next start",
     "typecheck": "tsc --noEmit"
   },
   "prettier": "./prettier.config.mjs",

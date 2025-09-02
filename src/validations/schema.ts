@@ -1,6 +1,11 @@
-import { BaseFormValues, BaseStatus, BaseValidationType, FormConfig } from "../dynamic-schema/types"
+import type {
+  BaseFormValues,
+  BaseStatus,
+  BaseValidationType,
+  FormConfig,
+} from "../dynamic-schema/types"
+import type { fieldValidations } from "./rules"
 import { nameRemoteValidation as nameRemoteClientValidation } from "./client-validations"
-import { fieldValidations } from "./rules"
 import { nameRemoteValidation as nameRemoteServerValidation } from "./server-validations"
 
 export interface FormValues extends BaseFormValues {
