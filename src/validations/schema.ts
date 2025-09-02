@@ -46,4 +46,30 @@ export const schema: FormConfig<FormValues, AvailableValidationType, AvailableSt
       },
     },
   },
+
+  update: {
+    fields: {
+      name: {
+        visible: true,
+        required: true,
+        validation: "nameValidation",
+        asyncClientValidation: nameRemoteClientValidation,
+        asyncServerValidation: nameRemoteServerValidation,
+      },
+      age: { visible: true, required: true, validation: "ageValidation", disabled: true },
+      toggle: { visible: true, required: false, validation: "boolean", disabled: false },
+      "conditional.fieldA": {
+        visible: true,
+        required: (values) => values.toggle == false,
+        disabled: (values) => values.toggle == true,
+        validation: "conditionalFieldAValidation",
+      },
+      "conditional.fieldB": {
+        visible: true,
+        required: (values) => values.toggle == true,
+        disabled: (values) => values.toggle == false,
+        validation: "conditionalFieldBValidation",
+      },
+    },
+  },
 }
